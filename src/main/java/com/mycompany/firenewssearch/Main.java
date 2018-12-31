@@ -5,10 +5,6 @@
  */
 package com.mycompany.firenewssearch;
 
-/**
- *
- * @author user
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -27,11 +23,15 @@ public class Main {
                         .build()));
 
         manager.searchNews();
-        
+
         while (manager.hasNews()) {
             NewsData news = manager.getNews();
-            WordProducer producer = new WordProducer(news);
-            producer.printWordFile();
+            System.out.println(news.getTitle());
+            System.out.println(news.getDate() + " " + news.getRepoter() + " " + news.getPublisher());
+            System.out.println(news.getNewsContent());
+            System.out.println();
+            //WordProducer producer = new WordProducer(news);
+            //producer.printWordFile();
             manager.removeTopNews();
         }
     }
